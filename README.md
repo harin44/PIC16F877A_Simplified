@@ -75,3 +75,26 @@ has several partitions
 ![image](https://github.com/harin44/PIC16F877A_Simplified/assets/94885392/31cbccc9-9f4a-43c0-bd48-b83e8371114e)
 
 
+each bank extenses upto 7Fh(128bytes), lowest location of each bank is reserved for the special function registers(SFR). registers are hardware registers used to control various aspects of the microcontroller, such as I/O pins, timers, and interrupts.Above the SFRs in each bank are the General Purpose Registers (GPRs), which are implemented as static RAM. These GPRs are used for general data storage and manipulation by the program running on the microcontroller.
+
+All implemented banks contain SFRs, but some frequently used SFRs from one bank may be mirrored in another bank. This means that the same SFR can be accessed using different addresses in different banks. This mirroring is done for code reduction and quicker access to commonly used SFRs, as it allows the programmer to access the SFR using the closest bank, reducing the number of bank switches needed.
+
+In the PIC microcontroller architecture, the General Purpose Register (GPR) file is a set of registers used for general data storage and manipulation by the program running on the microcontroller. The GPR file can be accessed in two ways:
+
+*  *Direct Access:* Registers in the GPR file can be accessed directly by using their specific register names or addresses. For example, to access register '0x20' directly, you would use the instruction MOVWF 0x20 to move the contents of the W register to register '0x20'.
+
+* *Indirect Access:* Registers in the GPR file can also be accessed indirectly through the File Select Register (FSR). The FSR is a special register used to point to a specific register in the GPR file. By loading an address into the FSR, you can then read from or write to the register pointed to by the FSR. This allows for more flexible and dynamic access to the GPR file, as the FSR can be changed during program execution to point to different registers.
+
+Indirect access is often used in PIC assembly programming when working with arrays or when the specific register to be accessed is determined at runtime. Here's a simple example of indirect access:
+
+assembly
+
+    MOVLW 0x20      ; Load address of the register to be accessed
+    MOVWF FSR       ; Move the address to the FSR
+    MOVF INDF, W    ; Read the contents of the register pointed to by FSR into W
+
+In this example, INDF is a special register that indirectly points to the register specified by the contents of the FSR. The MOVF INDF, W instruction reads the contents of the register pointed to by the FSR into the W register.
+
+
+![image](https://github.com/harin44/PIC16F877A_Simplified/assets/94885392/20f2d8b5-0382-4bb6-aa79-5ac23a6994d9)
+
