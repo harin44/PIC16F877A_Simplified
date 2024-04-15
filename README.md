@@ -33,5 +33,5 @@ Has 40/44 pins and 5 I/O ports, 15 interrputs, 8 A/D input channels & has a para
 
 * Pacakages - 40-pin PDIP/ 44-pin PLCC/ 44-pin TQFP/ 44-pin QFN
 
-![figure 1.2](https://github.com/harin44/PIC16F877A_Simplified/assets/94885392/053589fd-99cc-4595-8ff1-1f77f6a07a86)
+![image](https://github.com/harin44/PIC16F877A_Simplified/assets/94885392/053589fd-99cc-4595-8ff1-1f77f6a07a86)
 
