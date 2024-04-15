@@ -36,4 +36,30 @@ Has 40/44 pins and 5 I/O ports, 15 interrputs, 8 A/D input channels & has a para
 
 ![image](https://github.com/harin44/PIC16F877A_Simplified/assets/94885392/c2a48127-bbd9-42b4-bd0d-1ec30d7a968d)
 
+16f877A has three memory blocks
+    
+* program memory
+* data memory
+
+the above emories have seperate buses(to have concurrent access)
+
+has a 13-bit program counter that can address 8k word * 14 bit program memory space. This means that the PC can address up to 8,192 (2^13) memory locations, each containing 14 bits of data.
+
+have 8K words * 14bits of flash program memory. This means that the program memory can store up to 8,192 or 4,096 instructions, each instruction being 14 bits wide.
+
+what is address wraparound?
+
+Accessing a location above the physically implemented address range of the program memory will cause a wraparound. For example, if you try to access address 8,200 in a PIC16F877A (which has 8K words), the address will wraparound to 8,200 - 8,192 = 8, which is within the valid address range
+
+Reset vector is 0000h
+interrupt vector is 0004h
+
+ this information provides an understanding of how the program memory is organized and how the microcontroller accesses instructions during program execution.
+
+
+program memory map and stack
+
+![image](https://github.com/harin44/PIC16F877A_Simplified/assets/94885392/939cb061-647f-4f25-9978-5e3420429447)
+
+
 
