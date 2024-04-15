@@ -41,7 +41,9 @@ Has 40/44 pins and 5 I/O ports, 15 interrputs, 8 A/D input channels & has a para
 * program memory
 * data memory
 
-the above emories have seperate buses(to have concurrent access)
+the above memories have seperate buses(to have concurrent access)
+
+#### Program memory organization
 
 has a 13-bit program counter that can address 8k word * 14 bit program memory space. This means that the PC can address up to 8,192 (2^13) memory locations, each containing 14 bits of data.
 
@@ -61,5 +63,15 @@ program memory map and stack
 
 ![image](https://github.com/harin44/PIC16F877A_Simplified/assets/94885392/939cb061-647f-4f25-9978-5e3420429447)
 
+
+Data memory organization
+
+has several partitions 
+
+* general purpose registers
+* special function registers
+
+
+![image](https://github.com/harin44/PIC16F877A_Simplified/assets/94885392/31cbccc9-9f4a-43c0-bd48-b83e8371114e)
 
 
