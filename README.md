@@ -159,7 +159,57 @@ this is a virtual register that allows access to additional memory locations. to
 
 these are used by the cpu. Classified into two sets core and pheripheral.these are implemented as static RAM. 
 
-SFR summary
+#### SFR summary
+
+Status Reg(address 03h, 83h, 103h, 183h)
+
+**recommended that only BCF, BSF, SWAPF, & MOVWF to be used with the status register since they donot affect the Z, C, DC bits*
+
+*~~TO~~ & ~~PD~~ bits are not writeable also if status reg is a destination(dst) for a specific instruction then Z, DC & C bits write, to these are disabled. these bits are set or cleared according to the device logic.*
+
+*C & DC bits operates as borrow and digit borrow bit in substraction(SUBLW, SUBWF)*
 
 
+    |R/W-0| R/W-0 | R/W-0 | R-1 | R-1 |R/W-x | R/W-x | R/W-x |
 
+    | IRP | RP1 | RP0 | ~~TO~~ | ~~PD~~ | Z | DC | C |
+
+    bit7__________________________bit0
+
+
+bit7  IRP: Register Bank Select, for indirect addressing
+
+    1 = Bank2, 3(100h - 1FFh)
+    0 = Bank0, 1(00h - FFh)
+
+bit6-5 RP1:RP0: Register bank slect, for direct addressing(ech bank is 128 bytes)
+
+    11 = Bank3(180h - 1FFh)
+    10 = Bank2(100h - 17Fh)
+    01 = Bank1(80h - FFh)
+    00 = Bank0(00h - 7Fh)
+
+bit4  ~~TO~~: Timeout bit
+
+    1 = after power up/ by the CLRWDT instruction / SLEEP instruction
+    0 = WDT time-out occured
+
+bit3 ~~PD~~: power-down bit
+
+    1 = after power down / by the CLRWDT instruction
+    0 = by the execution of SLEEP instruction
+
+bit2 Z: zero bit
+
+    1 = result of arithmetic / logic operation is zero
+    0 = result of an arithmetic / logic operation is not zero
+
+bit1 DC: digital carry/borrow bit (ADDWF, ADDLW, SUBLW, SUBWF) *note for borrow the polarity is reversed*
+
+    1 = A carry-out from the 4th low order bit of result occured
+    0 = no carry out from the 4th low order bit of the result
+
+bit0 C: carry/ borrow bit(ADDWF, ADDLW, SUBLW, SUBWF, SUBWF) *note for borrow the polarity is reversed*
+
+    1 = a carry-out from the MSB of the result occured
+    0 = no carry-out from the MSB of the result bit occured
