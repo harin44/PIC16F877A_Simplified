@@ -172,9 +172,9 @@ Status Reg(address 03h, 83h, 103h, 183h)
 
     |R/W-0| R/W-0 | R/W-0 | R-1 | R-1 |R/W-x | R/W-x | R/W-x |
 
-    | IRP | RP1 | RP0 | ~~TO~~ | ~~PD~~ | Z | DC | C |
+    | IRP | RP1   | RP0   | ~TO~|~PD~ |  Z   |   DC  |   C   |
 
-    bit7__________________________bit0
+    bit7                                               bit0
 
 
 bit7  IRP: Register Bank Select, for indirect addressing
@@ -213,3 +213,32 @@ bit0 C: carry/ borrow bit(ADDWF, ADDLW, SUBLW, SUBWF, SUBWF) *note for borrow th
 
     1 = a carry-out from the MSB of the result occured
     0 = no carry-out from the MSB of the result bit occured
+
+
+OPTION_REG reg(address 81h, 181h)
+
+R/W reg, contains various control bits to configure the TMR0 prescale/WDT postscaler, ext INT interrput, TMR0 and the weak pullup on PORT-B
+
+    | R/W-1 | R/W-1 | R/W-1 | R/W-1 | R/W-1 | R/W-1 | R/W-1 | R/W-1|
+    | ~RBPU~| INTEDG| T0CS  | T0SE  | PSA   | PS2   | PS1   | PS0  | 
+    bit7                                                            bit0
+
+bit7 ~RBPU~: PORTB pullup enable bit
+
+    1 = PORTB pull up is disabled
+    0 = PORTB pull up is enabled by individual port latches
+
+bit6 ~INTEDG~ interrupt edge select bit
+
+    1 = interrupt on rising edge of RB0/INT pin
+    0 = interrupt on falling edge of RB0/INT pin
+
+bit5 ~T0CS~ TMR0 clock source select bit
+
+    1 = transition on RA4/T0CKI pin
+    0 = internal instruction cycle clock(CLKO)
+
+bit4 T0SE: TMR0 source edge select bit
+
+    1 = 
+
