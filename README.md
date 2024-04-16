@@ -79,6 +79,8 @@ each bank extenses upto 7Fh(128bytes), lowest location of each bank is reserved 
 
 All implemented banks contain SFRs, but some frequently used SFRs from one bank may be mirrored in another bank. This means that the same SFR can be accessed using different addresses in different banks. This mirroring is done for code reduction and quicker access to commonly used SFRs, as it allows the programmer to access the SFR using the closest bank, reducing the number of bank switches needed.
 
+#### General Purpose Registers 
+
 In the PIC microcontroller architecture, the General Purpose Register (GPR) file is a set of registers used for general data storage and manipulation by the program running on the microcontroller. The GPR file can be accessed in two ways:
 
 *  *Direct Access:* Registers in the GPR file can be accessed directly by using their specific register names or addresses. For example, to access register '0x20' directly, you would use the instruction MOVWF 0x20 to move the contents of the W register to register '0x20'.
@@ -95,6 +97,69 @@ assembly
 
 In this example, INDF is a special register that indirectly points to the register specified by the contents of the FSR. The MOVF INDF, W instruction reads the contents of the register pointed to by the FSR into the W register.
 
-
 ![image](https://github.com/harin44/PIC16F877A_Simplified/assets/94885392/20f2d8b5-0382-4bb6-aa79-5ac23a6994d9)
+
+#### Bank 0
+
+    'INDF' - 0x00 - indirect data memory registers
+    'TMR0 - 0x01 - timer0 reg
+    'PCL' - 0x02 - program low counter
+    'STATUS' 0x03 - status register 
+    'FSR' - 0x04 - file select register
+    'PORTA' - 0x05 - portA data register
+    'PortB' - 0x06 - portB data register
+    'EEDATA' - 0x08' - EEPROM data register
+    'EEADR' - 0x09 - EEPROM address data register
+    'PCLATH' - 0x0A - program counter low-order bits
+    'INTCON' - 0x0B - interrupt control register
+
+#### Bank 1
+
+    'OPTION_REG' - 0x81 - option register
+    'PCL' - 0x82 -  program counter high
+    'TRISA' - 0x85 - PortA Data direction reg
+    'TRISB' - 0x86 - portB data direction reg
+    'EECON1' - 0x88 - EEPROM control reg1
+    'EECON2' - 0x89 - EEPROM control reg2
+
+
+#### Bank 2
+
+    'PIR1' - 0x0C - pheripharal interrupt reg 1
+    'PIR2' - 0x0D - pheripharal interrupt reg 2
+    'TMR1L' - 0x0E - timer low byte reg
+    'TMR1H' - 0x0f - timer high byte reg
+    'T1CON' - 0x10 - timer1 control reg
+    'EECON1 - 0x18 - EEPROM control reg1
+    'EECON2 - 0x19 - EEPROM control reg2
+
+#### Bank 3
+
+this is a virtual register that allows access to additional memory locations. to access bank 3 we need to set the 'BSR'(Bank Select Reg.) to 0b11.
+
+    'INDF3' - 0x100 - indirect data memory register for bank 3
+    'TMR1L' - 0x101 - timer1 low byte register for bank 3
+    'TMR1H' - 0x102 - timer1 high byte reg for bank3
+    'T1CON' - 0x103 - timer1 control reg for bank3
+    'TMR2' - 0x105 - timer2 reg for bank3
+    'T2CON' - 0x106 - timer2 control reg for bank3
+    'SSPCON' - 0x107 - SSP buffer reg for bank3
+    'CCPR1L' - 0x108 - CCP1 low byte reg for bank3
+    'CCPR1H' - 0x10A - CCP1 high byte reg for bank3
+    'CCP1CON' - 0x10B - CCP1 control reg for bank3
+    'RCSTA' - 0x18D - USART receive control reg  for bank3
+    'TXREG' - 0x19A - USART transmit reg  for bank3
+    'TXSTA' - 0x19B - USART transmit control reg for bank3
+    'SPBRG' - 0x19E - USART baud rate generator reg for bank3
+
+
+
+#### Special Purpose Registers 
+
+
+these are used by the cpu. Classified into two sets core and pheripheral.these are implemented as static RAM. 
+
+SFR summary
+
+
 
