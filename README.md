@@ -236,9 +236,23 @@ bit6 ~INTEDG~ interrupt edge select bit
 bit5 ~T0CS~ TMR0 clock source select bit
 
     1 = transition on RA4/T0CKI pin
-    0 = internal instruction cycle clock(CLKO)
+    0 = internal instruction cycle clock(CLKO) 
 
 bit4 T0SE: TMR0 source edge select bit
 
     1 = 
+
+Special Notes for Easy Referance.
+
+What is is a micro controller?
+a small computer on a single IC containing processor core/memory/programmable I/O and other pheripharals.
+
+capabilities of a microcontroller?
+programmable
+configurable  H/W functionality
+can perform single or multiple tasks
+inbuilt pheripaharals
+
+
+
 
