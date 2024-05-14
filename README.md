@@ -34,12 +34,25 @@ Has 40/44 pins and 5 I/O ports, 15 interrputs, 8 A/D input channels & has a para
 * Pacakages - 40-pin PDIP/ 44-pin PLCC/ 44-pin TQFP/ 44-pin QFN
 
 
+PORTA 5pins -bi-directional i/o port
+PORTB 8pins -bi-directional i/o port, can be S/w programmed for internal weak pull-up 
+PORTC 8pins -bi-directional i/o port
+PORTD 8pins -bi-directional i/o port, parallel slave port when interfacing to a microcontroller bus.
+PORTE 3pins -bi-directional i/o port
+
+OSC1 - external clock input (ST buffer when in RC mode)
+OSC2 - clock output(in RC mode OSC2 pin output has 1/4 the freq. of OSC1)
+
+MCLR - master clear(Reset) input - this is set to high when programming and is set to low to reset the microcontroller
+
+
 ![image](https://github.com/harin44/PIC16F877A_Simplified/assets/94885392/c2a48127-bbd9-42b4-bd0d-1ec30d7a968d)
 
 16f877A has three memory blocks
     
 * program memory
 * data memory
+* flash program memory 
 
 the above memories have seperate buses(to have concurrent access)
 
@@ -55,6 +68,8 @@ Accessing a location above the physically implemented address range of the progr
 
 Reset vector is 0000h
 interrupt vector is 0004h
+page 0 - 0005h-07FFh & page 1 - 0800h-0FFFh ; On-Chip program memory
+
 
  this information provides an understanding of how the program memory is organized and how the microcontroller accesses instructions during program execution.
 
@@ -62,6 +77,7 @@ interrupt vector is 0004h
 program memory map and stack
 
 ![image](https://github.com/harin44/PIC16F877A_Simplified/assets/94885392/939cb061-647f-4f25-9978-5e3420429447)
+
 
 
 Data memory organization
@@ -75,7 +91,9 @@ has several partitions
 ![image](https://github.com/harin44/PIC16F877A_Simplified/assets/94885392/31cbccc9-9f4a-43c0-bd48-b83e8371114e)
 
 
-each bank extenses upto 7Fh(128bytes), lowest location of each bank is reserved for the special function registers(SFR). registers are hardware registers used to control various aspects of the microcontroller, such as I/O pins, timers, and interrupts.Above the SFRs in each bank are the General Purpose Registers (GPRs), which are implemented as static RAM. These GPRs are used for general data storage and manipulation by the program running on the microcontroller.
+* each bank extenses upto 7Fh(128bytes), lowest location of each bank is reserved for the special function registers(SFR).
+
+* registers are hardware registers used to control various aspects of the microcontroller, such as I/O pins, timers, and interrupts.Above the SFRs in each bank are the General Purpose Registers (GPRs), which are implemented as static RAM. These GPRs are used for general data storage and manipulation by the program running on the microcontroller.
 
 All implemented banks contain SFRs, but some frequently used SFRs from one bank may be mirrored in another bank. This means that the same SFR can be accessed using different addresses in different banks. This mirroring is done for code reduction and quicker access to commonly used SFRs, as it allows the programmer to access the SFR using the closest bank, reducing the number of bank switches needed.
 
