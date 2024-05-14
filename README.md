@@ -227,7 +227,7 @@ bit1 DC: digital carry/borrow bit (ADDWF, ADDLW, SUBLW, SUBWF) *note for borrow 
     1 = A carry-out from the 4th low order bit of result occured
     0 = no carry out from the 4th low order bit of the result
 
-bit0 C: carry/ borrow bit(ADDWF, ADDLW, SUBLW, SUBWF, SUBWF) *note for borrow the polarity is reversed*
+bit0 C: carry/ borrow bit(ADDWF, ADDLW, SUBLW, SUBWF, SUBWF)
 
     1 = a carry-out from the MSB of the result occured
     0 = no carry-out from the MSB of the result bit occured
@@ -260,27 +260,23 @@ bit4 T0SE: TMR0 source edge select bit
 
     1 = after power up, CLRWDT / SLEEP
     0 = WDT time-out occurs
-bit3 ~PD~ Power-down bit
 
-    1 = after power-up/ by the CLRWDT instruction
-    0 = by execution of SLEEP
+bit3 PSA: prescalar assignement bit
 
-bit2 Z Zero bit
+    1 = prescalar assigned assigned to WDT
+    0 = prescalar assigned to the Timer0 module
 
-    1 = result of arithmetic/logic operation is 0
-    0 = result of arithmetic/logic operation not 0
-    
-bit1 DC digit carry/borrow bit (ADDWF/ADDLW/SUBLW/SUBF) - for borrow polarity is reversed
+bit2-0: prescalar rate select bits
 
-    1 = carry-out from the 4th low order bit of result occured
-    0 = no carry-out from the 4th low order bit of the result
-
-bit0 C carry/borrow bit (ADDWF/ADDLW/SUBLW/SUBF)
-
-    1 = carry-out from the MSB of the result occured
-    0 = no carry-out from the MSB bit of the result occured
-
- 
+    bit value  | TMR0  | WDT Rate
+    000        | 1:2   | 1:1
+    001        | 1:4   | 1:2
+    010        | 1:8   | 1:4
+    011        | 1:16   | 1:8
+    100        | 1:32   | 1:16
+    101        | 1:64   | 1:32
+    110        | 1:128   | 1:64
+    111        | 1:256   | 1:128
 
 Special Notes for Easy Referance.
 
