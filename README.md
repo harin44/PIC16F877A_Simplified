@@ -281,13 +281,52 @@ bit2-0: prescalar rate select bits
 Special Notes for Easy Referance.
 
 What is is a micro controller?
+
 a small computer on a single IC containing processor core/memory/programmable I/O and other pheripharals.
 
 capabilities of a microcontroller?
+
 programmable
 configurable  H/W functionality
 can perform single or multiple tasks
 inbuilt pheripaharals
+
+building blocks & functions
+
+CPU -fetch and execute instructions
+program memeory - store progrma that are to be executed
+data/user memeory - store data(volatile-temporary memory, non-volatile memory-retain info even after power of and restart)
+I/O ports
+timers
+pheripharals
+
+PIC mircrocontroller i/O pin can source(give from pin) or sink(from out to pin) upto maximum of 25mA.
+
+PORTA 5pins, bi-directional port
+PORTB 8pins, bi-directional port
+PORTC 8pins, bi-directional port
+PORTD 8pins
+PORTE 3pins
+
+15 interrupts
+8 A/D input channels
+has a parallel slave port
+35 instructions
+VDD range 2V-5V(supply voltage)
+VSS ground 0V
+ 
+
+
+note for normal operation MCLR (Master Clear (input)/ programming input voltage(output))(a reset pin) is set to high for normal operation if MCLR is set to low the pic will not execute logic and pic will start to execute when it is set to high.
+
+OSC1/CLK1 - oscillator crystal/ external clock input
+OSC2/CLK2 - oscillator crystal/ clock output
+
+
+
+
+
+
 
 
 
