@@ -195,12 +195,12 @@ Status Reg(address 03h, 83h, 103h, 183h)
     bit7                                               bit0
 
 
-bit7  IRP: Register Bank Select, for indirect addressing
+bit7  IRP: Register Bank Select, for *indirect addressing*
 
     1 = Bank2, 3(100h - 1FFh)
     0 = Bank0, 1(00h - FFh)
 
-bit6-5 RP1:RP0: Register bank slect, for direct addressing(ech bank is 128 bytes)
+bit6-5 RP1:RP0: Register bank slect, for *direct addressing*(ech bank is 128 bytes)
 
     11 = Bank3(180h - 1FFh)
     10 = Bank2(100h - 17Fh)
