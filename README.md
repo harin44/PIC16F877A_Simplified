@@ -258,7 +258,29 @@ bit5 ~T0CS~ TMR0 clock source select bit
 
 bit4 T0SE: TMR0 source edge select bit
 
-    1 = 
+    1 = after power up, CLRWDT / SLEEP
+    0 = WDT time-out occurs
+bit3 ~PD~ Power-down bit
+
+    1 = after power-up/ by the CLRWDT instruction
+    0 = by execution of SLEEP
+
+bit2 Z Zero bit
+
+    1 = result of arithmetic/logic operation is 0
+    0 = result of arithmetic/logic operation not 0
+    
+bit1 DC digit carry/borrow bit (ADDWF/ADDLW/SUBLW/SUBF) - for borrow polarity is reversed
+
+    1 = carry-out from the 4th low order bit of result occured
+    0 = no carry-out from the 4th low order bit of the result
+
+bit0 C carry/borrow bit (ADDWF/ADDLW/SUBLW/SUBF)
+
+    1 = carry-out from the MSB of the result occured
+    0 = no carry-out from the MSB bit of the result occured
+
+ 
 
 Special Notes for Easy Referance.
 
