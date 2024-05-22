@@ -12,7 +12,7 @@ mikroC Keywords
 
 ![image](https://github.com/harin44/PIC16F877A_Simplified/assets/94885392/2211f37a-dfc5-4eab-9449-6bee93157052)
 
-
+EXAAMPLES on: https://www.mikroe.com/ebooks/pic-microcontrollers-programming-in-c/example-1
 example-1:
 
 turn on few LEDs on PORTB(turn on RB0,RB2, RB4, RB6)
