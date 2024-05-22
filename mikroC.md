@@ -13,4 +13,5 @@ mikroC Keywords
 ![image](https://github.com/harin44/PIC16F877A_Simplified/assets/94885392/2211f37a-dfc5-4eab-9449-6bee93157052)
 
 
-
+pointers
+special type of variables holding the address of character variables.
