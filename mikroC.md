@@ -3,10 +3,10 @@ purpose of writing C language is to break the bigger problem into several smalle
 
 data types in c
 
-  char(0-255)
-  int(-32768 - 32767)
-  float
-  double
+    char(0-255)
+    int(-32768 - 32767)
+    float
+    double
 
 mikroC Keywords
 
