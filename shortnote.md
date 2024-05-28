@@ -17,4 +17,9 @@ RP1 --> bit6
 
 bank0 if 00 / bank1 if 01 / bank2 if 10 / bank3 if 11
 
+TRISA(85h) / TRISB(86h)/ TRISC(87h) / TRISD(88h) / TRISE(89h) --> set to 0, output / set to 1, input
+
+PORTA(05h) / PORTB(06h) / PORTC(07h) / PORTD(08h) / PORTE(09h) --> 
+
+
 
